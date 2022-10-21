@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vh;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+.items-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item {
+    width: 80vw;
+    height: 60vh;
+    display: none;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item.active {
+    display: block;
+    animation: fade 500ms;
+}
+
+.thumbnails-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.thumbnail {
+    width: calc(80vw / 5);
+    height: 20vh;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .6;
+    transition: all 150ms;
+}
+
+.thumbnail.active img {
+    opacity: 1;
+    border: 3px solid rgb(250, 250, 250);
+}
+
+.info-container {
+    position: absolute;
+    z-index: 999;
+    top: 3%;
+    right: 3%;
+}
+
+.info {
+    display: none;
+    text-align: right;
+    color: white;
+}
+
+.info h2 {
+    margin-bottom: .5rem;
+}
+
+.info.active {
+    display: block;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
+    transform: translateY(-50%);
+    z-index: 999;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: rgba(250, 250, 250, 0.8);
+    transition: background-color 300ms;
+}
+
+.next {
+    left: unset;
+    right: 2.5%;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgb(250, 250, 250);
+}
+
+.buttons {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.buttons * {
+    transform: translateY(50%);
+    margin: 0 .5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    color: white;
+    background-color: #0d6efd;
+}
+
+.buttons *:active {
+    box-shadow: inset 0px 0px 25px 0px rgba(255,255,255,0.5);
+    border-color: #0d6efd;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
